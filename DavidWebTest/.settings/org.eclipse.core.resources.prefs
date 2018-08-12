@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/org/example/www/ServicioLog/ConsultaLogRequest.java=UTF-8
+encoding//src/org/example/www/ServicioLog/ConsultaLogResponseRegistrosLog.java=UTF-8
+encoding//src/org/example/www/ServicioLog/InfoLog.java=UTF-8
+encoding//src/org/example/www/ServicioLog/ServicioLog_BindingImpl.java=UTF-8
+encoding//src/org/example/www/ServicioLog/ServicioLog_BindingSkeleton.java=UTF-8
+encoding//src/org/example/www/ServicioLog/ServicioLog_BindingStub.java=UTF-8
+encoding//src/org/example/www/ServicioLog/ServicioLog_PortType.java=UTF-8
+encoding//src/org/example/www/ServicioLog/ServicioLog_Service.java=UTF-8
+encoding//src/org/example/www/ServicioLog/ServicioLog_ServiceLocator.java=UTF-8

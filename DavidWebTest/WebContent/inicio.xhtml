@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+	</h:head>
+	<h:body>
+		<center>
+			<p:panel>
+				<h:outputText value ="Operación con Matrices"/><br/><br/>
+			</p:panel>
+		</center>
+		<h:form>
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Dimenisión Matriz:* "/>
+      			<p:inputText id="dimension" required="true" label="Dimenisión Matriz" maxlength="5" value="#{inicio.dimension}">
+      			</p:inputText>
+      		
+      			<p:outputLabel value="Contenido Matriz Numérica: "/>
+      			<p:inputText id="contenidoNumeros" label="Contenido Matriz Numérica" value="#{inicio.contenidoN}">
+      			</p:inputText>
+      			
+      			<p:outputLabel value="Contenido Matriz Letras: "/>
+      			<p:inputText id="contenidoLetras" label="Contenido Matriz Letras" value="#{inicio.contenidoL}">
+      			</p:inputText>
+      			
+      			<p:outputLabel for="tipoMatriz" value="Tipo de Matriz:" />
+        		<p:selectOneRadio id="tipoMatriz" value="#{inicio.tipoMatriz}" required="true" label="Tipo de Matriz">
+            		<f:selectItem itemLabel="Númerica" itemValue="N" />
+            		<f:selectItem itemLabel="Letras" itemValue="L" />
+        		</p:selectOneRadio>
+        		
+        		<p:outputLabel for="operacion" value="Operación:" />
+        		<p:selectOneListbox id="operacion" value="#{inicio.operacion}" required="true" label="Operación">
+            		<f:selectItem itemLabel="Consultar Ocurrencias" itemValue="1" />
+		            <f:selectItem itemLabel="Eliminar Repetidos" itemValue="2" />
+            		<f:selectItem itemLabel="Ordenar Ascendentemente" itemValue="3" />
+        		</p:selectOneListbox>
+        		
+        		<p:commandButton value="Ejecutar" id="ejecutar" ajax="false" actionListener="#{inicio.buttonAction}" />
+      		</h:panelGrid>
+		</h:form>
+		
+		<p:dataTable var="resultado" value="#{inicio.listaResultado}">
+			<p:column headerText="Resultado">
+		    	<h:outputText value="#{resultado.valor}" />
+		    </p:column>
+		</p:dataTable>
+		
+		<p:dataTable var="log" value="#{inicio.listLog}">
+		    <p:column headerText="Id">
+		        <h:outputText value="#{log.id}" />
+		    </p:column>
+		    <p:column headerText="Trama IN">
+		        <h:outputText value="#{log.tramaIn}" />
+		    </p:column>
+		    <p:column headerText="Trama Out">
+		        <h:outputText value="#{log.tramaOut}" />
+		    </p:column>
+		    <p:column headerText="Usuario">
+		        <h:outputText value="#{log.usuario}" />
+		    </p:column>
+		    <p:column headerText="Fecha">
+		        <h:outputText value="#{log.fecha}" />
+		    </p:column>
+		</p:dataTable>
+	</h:body>
+</html>

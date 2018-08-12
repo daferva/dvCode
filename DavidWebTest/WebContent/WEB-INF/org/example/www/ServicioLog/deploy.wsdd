@@ -1,0 +1,57 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ServicioLog WSDL service -->
+
+  <service name="ServicioLog" provider="java:RPC" style="document" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://www.example.org/ServicioLog/"/>
+      <parameter name="wsdlServiceElement" value="ServicioLog"/>
+      <parameter name="schemaUnqualified" value="http://www.example.org/ServicioLog/"/>
+      <parameter name="wsdlServicePort" value="ServicioLog"/>
+      <parameter name="className" value="org.example.www.ServicioLog.ServicioLog_BindingSkeleton"/>
+      <parameter name="wsdlPortType" value="ServicioLog"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+      <typeMapping
+        xmlns:ns="http://www.example.org/ServicioLog/"
+        qname="ns:>ConsultaLogRequest"
+        type="java:org.example.www.ServicioLog.ConsultaLogRequest"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://www.example.org/ServicioLog/"
+        qname="ns:InfoLog"
+        type="java:org.example.www.ServicioLog.InfoLog"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://www.example.org/ServicioLog/"
+        qname="ns:>ConsultaLogResponse"
+        type="java:org.example.www.ServicioLog.ConsultaLogResponseRegistrosLog[]"
+        innerType="cmp-ns:>>ConsultaLogResponse>registrosLog" xmlns:cmp-ns="http://www.example.org/ServicioLog/"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://www.example.org/ServicioLog/"
+        qname="ns:>>ConsultaLogResponse>registrosLog"
+        type="java:org.example.www.ServicioLog.ConsultaLogResponseRegistrosLog"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
