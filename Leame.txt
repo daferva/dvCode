@@ -1,0 +1,11 @@
+Leame
+
+1. La carpeta DavidJPA contiene el proyecto de acceso a datos mediante el framework JPA y es tulizados en todos los demas proyectos vinculado mediante Maven.
+2. La carpeta DavidWebTest contiene la aplicación web donde se realizan las operaciones con las matrices y en este mismo proyecto esta el web service SOAP
+3. La carpeta restLog contiene el servicios web REST
+
+Tecnologias utilizadas
+JPA
+PrimeFaces
+Jboss EAP 7.0
+Base de datos MySQl 5.7
